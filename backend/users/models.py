@@ -1,4 +1,4 @@
-from audioop import reverse
+from django.urls import reverse
 
 from django.db import models
 from django.utils.text import slugify
@@ -23,4 +23,5 @@ class User(models.Model):
 
     def save(self,*args,**kwargs):
         self.slug = slugify(self.userName)
+        super().save(*args,**kwargs)
 
